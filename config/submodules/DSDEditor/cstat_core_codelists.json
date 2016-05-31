@@ -63,7 +63,7 @@
     "subject": "indicator"
   },
   {
-    "value": "CountrySTAT_HS|full",
+    "value": "HS|full",
     "text": {
       "EN": "HS Full"
     },

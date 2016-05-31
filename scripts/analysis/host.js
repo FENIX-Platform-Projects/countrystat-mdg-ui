@@ -28,18 +28,18 @@ define([
 
 
     function Host() {
-        //this.bindEventListener();
-        //this.initPage();
+        this.bindEventListener();
+        this.initPage();
     }
 
-  /*  Host.prototype.initPage = function () {
+    Host.prototype.initPage = function () {
 
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
     };
-*/
+
     Host.prototype.start = function () {
         this.initFenixComponent();
     };
@@ -83,7 +83,31 @@ define([
 
         var analysis = new Analysis({
             $el: s.ANALYSIS_CONTAINER,
-            environment : "distribution"
+            environment : "distribution",
+            defaultSelectors: ['resourceType', 'contextSystem'],
+            catalog_default_selectors : ['contextSystem', 'resourceType'],
+            catalog_selectors_registry : {
+                contextSystem : {
+                    selector : {
+                        id : "dropdown",
+                        source : [
+                            {value : "cstat_mdg", label : "CountrySTAT Madagascar"}
+                        ],
+                        default : ["cstat_mdg"],
+                        hideSummary : true
+                    },
+
+                    template : {
+                        hideRemoveButton : false
+                    },
+
+                    format : {
+                        output : "enumeration",
+                        metadataAttribute: "dsd.contextSystem"
+                    }
+                }
+            }
+
         });
         /*
         var catalog = this.createCatalog({
@@ -116,6 +140,7 @@ define([
         return instance;
     };
 
+    */
     Host.prototype.bindEventListener = function () {
 
         var self = this;
@@ -133,13 +158,13 @@ define([
 
         });
 
-        amplify.subscribe('fx.widget.catalog.select', _.bind(this.closeOverly, this));
+      //  amplify.subscribe('fx.widget.catalog.select', _.bind(this.closeOverly, this));
 
-        amplify.subscribe('fx.widget.catalog.metadata', _.bind(this.onMetadataClick, this));
+     //   amplify.subscribe('fx.widget.catalog.metadata', _.bind(this.onMetadataClick, this));
 
-        amplify.subscribe('fx.widget.catalog.download',_.bind(this.onDownloadClick, this));
+        //amplify.subscribe('fx.widget.catalog.download',_.bind(this.onDownloadClick, this));
     };
-
+    /*
 
     Host.prototype.onMetadataClick = function(model) {
 
@@ -218,35 +243,36 @@ define([
         this.$report.init('tableExport');
         this.$report.exportData(payload,C.MD_EXPORT_URL);
     };
-    //
-    //Host.prototype.toggleOverly = function () {
-    //
-    //    this.overlayStatus === 'opened' ? this.closeOverly() : this.openOverly();
-    //
-    //};
-    //
-    //Host.prototype.openOverly = function () {
-    //    this.overlayStatus = 'opened';
-    //
-    //    $(s.OVERLAY_OPEN).find('img').attr('src', 'css/icons/close-ico.svg');
-    //
-    //    $(s.OVERLAY).addClass('show');
-    //
-    //    $(window).trigger('resize');
-    //
-    //};
-    //
-    //Host.prototype.closeOverly = function () {
-    //
-    //    this.overlayStatus = 'closed';
-    //
-    //    $(s.OVERLAY_OPEN).find('img').attr('src', 'css/icons/catalog-ico.svg');
-    //
-    //    $(s.OVERLAY).removeClass('show');
-    //
-    //    $(window).trigger('resize');
-    //
-    //};*/
+    */
+
+    Host.prototype.toggleOverly = function () {
+
+        this.overlayStatus === 'opened' ? this.closeOverly() : this.openOverly();
+
+    };
+
+    Host.prototype.openOverly = function () {
+        this.overlayStatus = 'opened';
+
+        $(s.OVERLAY_OPEN).find('img').attr('src', 'css/icons/close-ico.svg');
+
+        $(s.OVERLAY).addClass('show');
+
+        $(window).trigger('resize');
+
+    };
+
+    Host.prototype.closeOverly = function () {
+
+        this.overlayStatus = 'closed';
+
+        $(s.OVERLAY_OPEN).find('img').attr('src', 'css/icons/catalog-ico.svg');
+
+        $(s.OVERLAY).removeClass('show');
+
+        $(window).trigger('resize');
+
+    };
 
     /* AUX */
     /*
