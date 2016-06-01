@@ -86,11 +86,11 @@ define([
 
         var circle = new ProgressBar.Circle(s.PERCENTAGE_ONE, c);
 
-        circle.animate(0.54);
+        circle.animate(0.09);
 
         var circle_two = new ProgressBar.Circle(s.PERCENTAGE_TWO, c);
 
-        circle_two.animate(0.46);
+        circle_two.animate(0.91);
 
     };
 

@@ -75,6 +75,31 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
 }
 
 
+
+
+.btn-primary {
+  color: white;
+  border-color: darken($fx-cool-blue, 10%);
+  background-color: $fx-cool-blue;
+
+  &:hover {
+    color: white;
+    border-color: darken($fx-cool-blue, 10%);
+    background-color: darken($fx-cool-blue, 5%);
+  }
+
+  &:focus {
+    color: white;
+    border-color: darken($fx-cool-blue, 20%);
+    background-color: darken($fx-cool-blue, 15%);
+  }
+
+}
+
+
+
+
+
 .afg-title{
   font-family: 'Roboto';
   font-size: 10px;
@@ -106,7 +131,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
   }
 
   h4{
-    font-size: 10px;
+    font-size: 15px;
     color: #FFF;
     font-family: 'Roboto';
     font-weight: 500;
@@ -124,15 +149,15 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
   }
 
   span{
-    width: 50%;
+    width: 60%;
     display: inline-block;
     position: relative;
-    font-size: 8px;
+    font-size: 11px;
     color: #FFF;
     font-family: 'Roboto';
     font-weight: 300;
     position: relative;
-    top: -7px;
+    top: -9px;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;

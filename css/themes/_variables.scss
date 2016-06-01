@@ -54,8 +54,9 @@ $afg-custom-color1: #29403e;
 
 $afg-custom-color2: #305a52;
 $afg-custom-color3: #3a7f70;
-$afg-yellow: #e4c779;
-$afg-yellow-light: #f5e5bb;
+$afg-yellow: lighten($fx-cool-blue, 5%);
+
+$afg-yellow-light: lighten($fx-cool-blue, 20%);
 $afg-false-white: #e0e9f0;
 $afg-light-blue-bg: #e0e9f1;
 $afg-light-blue-text: #abb9c4;
