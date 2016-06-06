@@ -20,7 +20,7 @@ define(['jquery', 'fx-submodules/config/baseConfig'],
         $.extend(cfg, config_base);
 
         cfg.TOP_MENU = {
-            url: './config/submodules/fx-menu/topmenu_config.json',
+            url: '../../../config/submodules/fx-menu/topmenu_config.json',
             container: '#sidebar-wrapper',
             template: 'fx-menu/templates/side.html',
             active: "createdataset",
@@ -28,7 +28,7 @@ define(['jquery', 'fx-submodules/config/baseConfig'],
         };
 
         cfg.SECONDARY_MENU = {
-            url: './submodules/fenix-ui-data-management/config/secondary_menu.json',
+            url: '../../../submodules/fenix-ui-data-management/config/secondary_menu.json',
             disable: ['delete', 'close', 'data', 'dsd']
         }
 
