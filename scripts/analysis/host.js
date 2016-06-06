@@ -86,6 +86,7 @@ define([
             environment : "production",
             defaultSelectors: ['resourceType', 'contextSystem'],
             catalog_default_selectors : ['contextSystem', 'resourceType'],
+            cache : false,
             catalog_selectors_registry : {
                 contextSystem : {
                     selector : {
@@ -109,38 +110,9 @@ define([
             }
 
         });
-        /*
-        var catalog = this.createCatalog({
-            $el: s.CATALOG_CONTAINER,
-            defaultSelectors: ['resourceType', 'contextSystem', 'uid'],
-            environment: "distribution"
-            //id : "my_id"
-            //actions: ["download", 'view'],
-            //baseFilter : { test : "test"}
-        });
-        */
 
     };
-/*
-    Host.prototype.createCatalog = function (params) {
 
-        var instance = new Catalog(params);
-
-        catalogs.push(instance);
-
-        return instance;
-    };
-*/
-  /*  Host.prototype.createAnalysis = function (params) {
-
-        var instance = new Analysis(params);
-
-        instances.push(instance);
-
-        return instance;
-    };
-
-    */
     Host.prototype.bindEventListener = function () {
 
         var self = this;
@@ -158,92 +130,8 @@ define([
 
         });
 
-      //  amplify.subscribe('fx.widget.catalog.select', _.bind(this.closeOverly, this));
-
-     //   amplify.subscribe('fx.widget.catalog.metadata', _.bind(this.onMetadataClick, this));
-
-        //amplify.subscribe('fx.widget.catalog.download',_.bind(this.onDownloadClick, this));
-    };
-    /*
-
-    Host.prototype.onMetadataClick = function(model) {
-
-        var self = this;
-
-        this.$modalMetadata.modal('show');
-
-        var metadata = new MetadataViewer();
-
-        self.$modalMetadata.find(s.MODAL_METADATAVIEWER_CONTAINER).empty();
-
-        metadata.render({
-            lang: 'en',
-            model: model,
-            //domain: "rlm_" + request.inputs.indicator[0],
-            el: self.$modalMetadata.find(s.MODAL_METADATAVIEWER_CONTAINER)
-        });
-
-        self._listenToExportMetadata(model);
-
     };
 
-    Host.prototype._listenToExportMetadata = function(model) {
-        var fileName = model.title['EN'].replace(/[^a-z0-9]/gi, '_').toLowerCase();
-
-        var self = this;
-        $(s.BTN_EXPORT_METADATA).on('click', function(){
-
-            var template = model.filter && model.filter["dsd.contextSystem"] && model.filter["dsd.contextSystem"].enumeration && [0] && model.filter["dsd.contextSystem"].enumeration[0] === 'uneca'?
-                'uneca' : 'fao';
-
-            var payload = {
-                resource: {
-                    metadata : {
-                        uid : model.uid
-                    },
-                    data : []
-                },
-                input:{
-                },
-                output: {
-                    config:{
-                        template : template,
-                        lang : 'en'.toUpperCase(),
-                        fileName: fileName+'.pdf'
-                    }
-                }
-            };
-
-            self.$report.init('metadataExport');
-            self.$report.exportData(payload,C.MD_EXPORT_URL);
-        });
-    };
-
-
-    Host.prototype.onDownloadClick = function (model) {
-
-        var payload = {
-
-            resource: {
-                metadata : {
-                    uid : model.uid
-                },
-                data : []
-            },
-            input:{
-                config:{}
-            },
-            output: {
-                config:{
-                    lang : 'en'.toUpperCase()
-                }
-            }
-        };
-
-        this.$report.init('tableExport');
-        this.$report.exportData(payload,C.MD_EXPORT_URL);
-    };
-    */
 
     Host.prototype.toggleOverly = function () {
 
@@ -274,16 +162,6 @@ define([
 
     };
 
-    /* AUX */
-    /*
-    Host.prototype.addItem = function () {
-
-        var item = {"filter":{"dsd.contextSystem":{"enumeration":["cstat_mdg"]},"meContent.resourceRepresentationType":{"enumeration":["dataset"]}},"creationDate":1400407200000,"title":{"EN":"Import Quantity of Crops and livestock products by year, commodity (Ton)"},"uid":"002CTR045","dsd":{"rid":"63_153"},"meMaintenance":{"seUpdate":{"updateDate":1435214850175}},"rid":"9_5703","contacts":[{"position":{"EN":""},"organization":{"EN":"CountrySTAT"},"role":"distributor","contactInfo":{"emailAddress":"faqiria@yahoo.com","hoursOfService":{"EN":""},"contactInstruction":{"EN":""}},"specify":{"EN":""},"organizationUnit":{"EN":""},"roleLabel":{"EN":"Distributor"}}],"meContent":{"description":{"EN":"Import Quantity of Crops and livestock products\r\nby year, commodity .\r\nUnit of measurement: Ton"},"resourceRepresentationType":"dataset","keywords":["Import","Crops","Livestock"],"statisticalConceptsDefinitions":{"EN":""},"seReferencePopulation":{"statisticalPopulation":{"EN":"Crops and livestock"},"referencePeriod":{"version":"1.0","codes":[{"code":"9","label":{"EN":"Year"}}],"idCodeList":"FAO_Period","extendedName":{"EN":"FAO Reference Period"}},"referenceArea":{"version":"1.0","codes":[{"code":"ADM0","label":{"EN":"International or country boundaries."}}],"idCodeList":"GAUL_ReferenceArea","extendedName":{"EN":"GAUL reference area"}}},"seCoverage":{"coverageSectors":{"codes":[{"code":"0206","label":{"EN":"Internation Trade"}}],"idCodeList":"UNECA_ClassificationOfActivities","extendedName":{"EN":"UNECA Classification of Activities -Domains, topics and indicators"}},"coverageSectorsDetails":{"EN":""},"coverageTime":{"from":1167606000000,"to":1356908400000},"coverageGeographic":{"version":"2014","codes":[{"code":"1","label":{"PT":"Afeganistão","FR":"Afghanistan","AR":"أفغانستان","EN":"Afghanistan","RU":"Афганистан","ES":"Afganistán","ZH":"阿富汗"}}],"idCodeList":"GAUL0","extendedName":{"EN":"Global administrative unit layer country level"}}},"resourceRepresentationTypeLabel":{"EN":"Dataset"}},"languageDetails":{"EN":""},"characterSet":{"codes":[{"code":"106","label":{"EN":"UTF-8"}}],"idCodeList":"IANAcharacterSet","extendedName":{"EN":"Internet Assigned Numbers Authority codelist"}},"metadataStandardName":"FENIX","metadataStandardVersion":"1.0","metadataLanguage":{"version":"1998","codes":[{"code":"eng","label":{"EN":"English"}}],"idCodeList":"ISO639-2","extendedName":{"EN":"International Standard Organization - Language"}},"meInstitutionalMandate":{"legalActsAgreements":{"EN":"For legal acts concerning statistics at national levels see links to country websites.\r\n"},"institutionalMandateDataSharing":{"EN":"\"Article I of the constitution indeed requires the Organization to collect, analyse, interpret and disseminate information relating to nutrition, food and agriculture (the term “agriculture” and its derivatives includes forestry, fisheries and aquaculture). The first session of the FAO Conference in 1945 provided the rationale: “If FAO is to carry out its work successfully it will need to know where and why hunger and malnutrition exist, what forms they take, and how widespread they are. Such data will serve as a basis for making plans, determining the efficacy of measures used, and measuring progress from time to time.” \r\nMember countries reaffirmed this mandate in 2000 when formulating the Organization’s strategic thrusts for the 2000-2015 period: Corporate Strategy E1 commits the Organization to building “an integrated information resource base, with current, relevant and reliable statistics, information and knowledge made accessible to all FAO clients.\r\n\"\r\n"}},"meAccessibility":{"seConfidentiality":{"confidentialityPolicy":{"EN":"Only non-confidential data are recorded.\r\n"},"confidentialityDataTreatment":{"EN":""},"confidentialityStatus":{"version":"1.0","codes":[{"code":"F","label":{"EN":"Free"}}],"idCodeList":"CL_CONF_STATUS","extendedName":{"EN":"Confidentiality status (SDMX)"}}}},"meDataQuality":{"qualityManagement":{"EN":"","parent":"qualityManagement."},"qualityAssessment":{"EN":"Based on TWG quality assessment methodology.\r\n","parent":"qualityAssessment."},"qualityAssurance":{"EN":"Statistics are subject to the general quality assurance framework , where domain-specific quality assurance activities (the use of best practices, quality reviews, self-assessments, compliance monitoring) are carried out systematically. \r\n","parent":"qualityAssurance."},"seAccuracy":{"accuracyNonSampling":{"EN":"It is not possible to asses the accuracy but when there is a substantial amount of estimated or imputed data points, the accuracy for certain products, countries and regions is not that good.\r\n"},"accuracySampling":{"EN":""}},"seComparability":{"comparabilityGeographical":{"EN":"All data refers to Afghanistan/Afghanistan regions.\r\n\r\n"},"comparabilityTime":{"EN":""},"coherenceIntern":{"EN":"Among Afghanistan domains fairly good overall coherence.\r\n"}}},"meStatisticalProcessing":{"seDataCompilation":{"missingData":{"EN":"\"Missing data are highlighted in the dataset using the following symbols: \r\n-data not available = \"\"..\"\" and \"\"...\"\" missing data (data exist but have not been collected)\r\n\r\n-\"\".\"\" data for this category do not exist and / or data included in another category\"\r\n"},"weights":{"EN":"No weights.\r\n"},"aggregationProcessing":{"EN":""},"indexType":{"EN":"No index.\r\n"},"dataAdjustment":{"version":"1.1","codes":[{"code":"_Z","label":{"EN":"Not applicable"}}],"idCodeList":"CL_ADJUSTMENT","extendedName":{"EN":"Adjustment code list (ESTAT)"}},"dataAdjustmentDetails":{"EN":""}},"seDataValidation":{"dataValidationIntermediate":{"EN":""},"dataValidationOutput":{"EN":"Countries and International Organizations are responsible for transmitting data which have already been checked. Validation at FAO concerns any transmission errors, consolidation and data consistency- data also validated internally followed by peer-review.\r\n"},"dataValidationSource":{"EN":""}},"seDataSource":{"seSecondaryDataCollection":{"dataCollection":{"EN":"Technical Working Group\r\n"},"originOfCollectedData":{"version":"1.0","codes":[{"code":"D","label":{"EN":"Consultants"}}],"idCodeList":"FAOSTAT_OriginData","extendedName":{"EN":"Origin of collected data"}},"rawDataDescription":{"EN":""}}}},"language":{"version":"1998","codes":[{"code":"eng","label":{"EN":"English"}}],"idCodeList":"ISO639-2","extendedName":{"EN":"International Standard Organization - Language"}},"actions":{"SELECT_RESOURCE":{"event":"select","labels":{"EN":"Select Resource"}}}};
-
-        this.analysis.add(item);
-
-    };
-    */
     return Host;
 
 });
