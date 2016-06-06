@@ -8,7 +8,7 @@ require([
     '../../submodules/fenix-ui-DSDEditor/js/paths',
     '../../submodules/fenix-ui-metadata-editor/js/paths',
     '../../submodules/fenix-ui-catalog/src/js/paths',
-    '../../submodules/fenix-ui-menu/js/paths',
+    '../../submodules/fenix-ui-menu/src/js/paths',
     '../../submodules/fenix-ui-data-management/src/js/paths',
     '../../submodules/fenix-ui-filter/src/js/paths'
 ], function (Compiler, FenixCommons, DataMngCommons, DataEditor, DSDEditor, MetadataEditor, Catalog, Menu, DataMng, Filter) {
@@ -31,7 +31,7 @@ require([
     catalogConfig.baseUrl = '../../submodules/fenix-ui-catalog/src/js/';
 
     var menuConfig = Menu;
-    menuConfig.baseUrl = '../../submodules/fenix-ui-menu/js';
+    menuConfig.baseUrl = '../../submodules/fenix-ui-menu/src/js';
 
     var dataMngConfig = DataMng;
     dataMngConfig.baseUrl = '../../submodules/fenix-ui-data-management/src/js';

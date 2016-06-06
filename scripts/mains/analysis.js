@@ -15,7 +15,7 @@ require.config({
     paths: {
         compilerPaths: pathProjectRoot + 'submodules/fenix-ui-common/js/Compiler',
         commonPaths: pathProjectRoot + 'submodules/fenix-ui-common/js/paths',
-        menuPaths: pathProjectRoot + 'submodules/fenix-ui-menu/js/paths',
+        menuPaths: pathProjectRoot + 'submodules/fenix-ui-menu/src/js/paths',
         dashboardPaths: pathProjectRoot + 'submodules/fenix-ui-dashboard/src/js/paths',
         chartPaths: pathProjectRoot + 'submodules/fenix-ui-chart-creator/src/js/paths',
         mapPaths: pathProjectRoot + 'submodules/fenix-ui-map-creator/src/js/paths',
@@ -63,7 +63,7 @@ require([
     catalogConfig.baseUrl = submodules_path + 'fenix-ui-catalog/src/js';
 
     var menuConfig = Menu;
-    menuConfig.baseUrl = submodules_path + '/fenix-ui-menu/js';
+    menuConfig.baseUrl = submodules_path + '/fenix-ui-menu/src/js';
 
     var analysisConfig = Analysis;
     analysisConfig.baseUrl = submodules_path + 'fenix-ui-analysis/src/js';

@@ -83,7 +83,7 @@ define([
 
         var analysis = new Analysis({
             $el: s.ANALYSIS_CONTAINER,
-            environment : "distribution",
+            environment : "production",
             defaultSelectors: ['resourceType', 'contextSystem'],
             catalog_default_selectors : ['contextSystem', 'resourceType'],
             catalog_selectors_registry : {
