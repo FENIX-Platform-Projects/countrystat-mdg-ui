@@ -134,7 +134,7 @@ require([
         //trace, debug, info, warn, error, silent
         log.setLevel('trace');
 
-        new Host().start();
+        new Host();
 
     });
 });

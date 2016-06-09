@@ -13,57 +13,47 @@ define([
 
     var s = {
         ANALYSIS_CONTAINER: '#fx-analysis-container',
-        CATALOG_CONTAINER: '#fx-catalog-container',
-        MODULES_STACK_CONTAINER: '#fx-modules-stack-container',
-        OVERLAY: "#overlay",
-        OVERLAY_CONTENT: '.overlay-content',
-        OVERLAY_OPEN: '.open-overlay',
-        OVERLAY_CLOSE: '.close-overlay',
-        PAGE_CONTENT: "#analysis-page-content",
-        MODAL_METADATA: '#cstat-metadata-modal',
-        MODAL_METADATAVIEWER_CONTAINER: '[data-content="metadata-viewer-container"]',
-
-        BTN_EXPORT_METADATA : '.fx-md-report-btn'
-    }, catalogs = [], instances = [];
-
+        MENU_TOGGLE : "#menu-toggle",
+        LATERAL_WRAPPER : '#sidebar-wrapper',
+        PAGE_WRAPPER : "#wrapper"
+    };
 
     function Host() {
+
+        this.overlayStatus = 'opened';
+
         this.bindEventListener();
-        this.initPage();
+
+        this.initComponent();
     }
 
-    Host.prototype.initPage = function () {
+    Host.prototype.bindEventListener = function () {
 
-        $("#menu-toggle").click(function(e) {
+        var self = this;
+
+        $(s.MENU_TOGGLE).click(function (e) {
             e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
+
+            self.toggleLateralMenu();
+
         });
     };
 
-    Host.prototype.start = function () {
-        this.initFenixComponent();
-    };
+    Host.prototype.initComponent = function () {
 
-    Host.prototype.initFenixComponent = function () {
-
-        var self  = this;
-
-       // this.$modalMetadata = $(s.MODAL_METADATA);
-
-        //this.$report = new Report();
-
-        var menuConf  = {
-            url: C.TOP_MENU,
-            active: "analysis",
-            container: '#sidebar-wrapper',
-            template: 'fx-menu/templates/side.html',
-            lang: "EN"
-        };
+        var self = this,
+            menuConf = {
+                url: C.TOP_MENU,
+                active: "analysis",
+                container: s.LATERAL_WRAPPER,
+                template: 'fx-menu/templates/side.html',
+                lang: "EN"
+            };
 
         var menuConfAuth = _.extend({}, menuConf, {
             hiddens: ['login']
         }), menuConfPub = _.extend({}, menuConf, {
-            hiddens: ['createdataset',  'logout']
+            hiddens: ['createdataset', 'logout']
         });
 
         this.authManager = new AuthManager({
@@ -73,7 +63,7 @@ define([
             onLogout: function () {
                 self.topMenu.refresh(menuConfPub);
             },
-            modal : {
+            modal: {
                 keyboard: true,
                 backdrop: false
             }
@@ -82,64 +72,34 @@ define([
         this.topMenu = new TopMenu(this.authManager.isLogged() ? menuConfAuth : menuConfPub);
 
         var analysis = new Analysis({
-            cache : false,
+            cache: false,
             el: s.ANALYSIS_CONTAINER,
-            environment : C.environment,
-            catalogDefaultSelectors : C.catalogDefaultSelectors,
-            catalogSelectorsRegistry : C.catalogSelectorsRegistry,
-            catalogBaseFilter : C.catalogBaseFilter,
+            environment: C.environment,
+            catalogDefaultSelectors: C.catalogDefaultSelectors,
+            catalogSelectorsRegistry: C.catalogSelectorsRegistry,
+            catalogBaseFilter: C.catalogBaseFilter,
             catalogMenuExcludedItems: C.catalogMenuExcludedItems
-        });
-
+        })
+            .on("catalog.show", function () {
+                self.closeLateralMenu();
+            });
     };
 
-    Host.prototype.bindEventListener = function () {
+    Host.prototype.toggleLateralMenu = function () {
 
-        var self = this;
-
-        //$(s.OVERLAY_OPEN).on('click', _.bind(this.addItem, this));
-        $(s.OVERLAY_OPEN).on('click', _.bind(this.toggleOverly, this));
-
-        $(s.OVERLAY).on('click', function (e){
-
-            if( e.target !== this ){
-                return;
-            }
-
-            self.closeOverly();
-
-        });
-
+        this.overlayStatus === 'opened' ? this.closeLateralMenu() : this.openLateralMenu();
     };
 
-
-    Host.prototype.toggleOverly = function () {
-
-        this.overlayStatus === 'opened' ? this.closeOverly() : this.openOverly();
-
-    };
-
-    Host.prototype.openOverly = function () {
+    Host.prototype.openLateralMenu = function () {
         this.overlayStatus = 'opened';
 
-        $(s.OVERLAY_OPEN).find('img').attr('src', 'css/icons/close-ico.svg');
-
-        $(s.OVERLAY).addClass('show');
-
-        $(window).trigger('resize');
-
+        $(s.PAGE_WRAPPER).removeClass("toggled");
     };
 
-    Host.prototype.closeOverly = function () {
-
+    Host.prototype.closeLateralMenu = function () {
         this.overlayStatus = 'closed';
 
-        $(s.OVERLAY_OPEN).find('img').attr('src', 'css/icons/catalog-ico.svg');
-
-        $(s.OVERLAY).removeClass('show');
-
-        $(window).trigger('resize');
-
+        $(s.PAGE_WRAPPER).addClass("toggled");
     };
 
     return Host;
