@@ -82,33 +82,13 @@ define([
         this.topMenu = new TopMenu(this.authManager.isLogged() ? menuConfAuth : menuConfPub);
 
         var analysis = new Analysis({
-            $el: s.ANALYSIS_CONTAINER,
-            environment : "production",
-            defaultSelectors: ['resourceType', 'contextSystem'],
-            catalog_default_selectors : ['contextSystem', 'resourceType'],
             cache : false,
-            catalog_selectors_registry : {
-                contextSystem : {
-                    selector : {
-                        id : "dropdown",
-                        source : [
-                            {value : "cstat_mdg", label : "CountrySTAT Madagascar"}
-                        ],
-                        default : ["cstat_mdg"],
-                        hideSummary : true
-                    },
-
-                    template : {
-                        hideRemoveButton : false
-                    },
-
-                    format : {
-                        output : "enumeration",
-                        metadataAttribute: "dsd.contextSystem"
-                    }
-                }
-            }
-
+            el: s.ANALYSIS_CONTAINER,
+            environment : C.environment,
+            catalogDefaultSelectors : C.catalogDefaultSelectors,
+            catalogSelectorsRegistry : C.catalogSelectorsRegistry,
+            catalogBaseFilter : C.catalogBaseFilter,
+            catalogMenuExcludedItems: C.catalogMenuExcludedItems
         });
 
     };
