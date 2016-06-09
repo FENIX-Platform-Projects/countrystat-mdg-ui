@@ -5413,6 +5413,13 @@ input[type="button"]::-moz-focus-inner {
   -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%); }
 
+/* Fenix Color Reference */
+.color-main {
+  background-color: #db514b; }
+
+.color-main-light-10 {
+  background-color: #e47a76; }
+
 /* Fenix Datepicker - Components */
 .datepicker {
   font-size: 12px; }
@@ -13197,6 +13204,15 @@ input[type="radio"]:disabled + label {
   to {
     box-shadow: 0 0 0 45px rgba(219, 81, 75, 0); } }
 /* Catalog */
+.fx-catalog .btn-fx-catalog-filters {
+  margin-left: 0;
+  margin-bottom: 0; }
+  .fx-catalog .btn-fx-catalog-filters span[class^="icojam_"] {
+    color: white;
+    font-size: 20px;
+    position: relative;
+    top: 3px; }
+
 .fx-catalog {
   /* Hovered */ }
   .fx-catalog [data-content] {
@@ -13220,7 +13236,6 @@ input[type="radio"]:disabled + label {
     pointer-events: auto; }
   @media screen and (min-width: 768px) {
     .fx-catalog .cat-btn-left, .fx-catalog .cat-btn-right {
-      opacity: 0;
       pointer-events: none;
       -webkit-transition: all 0.3s ease 0.2s;
       -moz-transition: all 0.3s ease 0.2s;
@@ -13243,8 +13258,7 @@ input[type="radio"]:disabled + label {
       margin-right: 50px; } }
 
 .cat-sidebar {
-  background-color: #efefef;
-  overflow-y: scroll; }
+  background-color: #efefef; }
   .cat-sidebar .cat-filter-container {
     padding-bottom: 25px; }
 
@@ -13275,6 +13289,10 @@ input[type="radio"]:disabled + label {
   border-bottom: none;
   border-left: none;
   border: none; }
+.cat-results .cat-statuses-holder {
+  height: 100%; }
+  .cat-results .cat-statuses-holder .loading {
+    margin-top: 20px; }
 
 .catalog-modal .modal-content {
   -moz-border-radius-topleft: 0;
@@ -13311,8 +13329,7 @@ input[type="radio"]:disabled + label {
     width: 950px; } }
 
 .cat-toolbar {
-  padding: 0;
-  position: relative; }
+  padding: 0; }
   .cat-toolbar .cat-btn-left {
     width: 50px;
     position: absolute;
@@ -14057,6 +14074,10 @@ input[type="radio"]:disabled + label {
 .back-content {
   position: relative;
   z-index: 0; }
+  .back-content .alert {
+    position: absolute;
+    width: calc(100% - 30px);
+    z-index: 2; }
 
 .process-details {
   height: 350px;
@@ -14093,11 +14114,12 @@ input[type="radio"]:disabled + label {
   transition: all 0.3s ease 0s; }
   .filter-slide [data-selector] .btn-group.controller {
     opacity: 1; }
-  @media screen and (min-width: 480px) {
-    .filter-slide {
-      width: 50%; } }
   .filter-slide.swiper-slide-active {
     /* Stylize the active filter */ }
+
+@media screen and (min-width: 480px) {
+  .fx-grid-item[data-size="full"] .filter-slide {
+    width: 50%; } }
 
 .swiper-button-prev {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'#db514b'%2F%3E%3C%2Fsvg%3E");
@@ -14338,6 +14360,10 @@ input[type="radio"]:disabled + label {
 .gt-row-even {
   background-color: white; }
 
+/* Hide selectors */
+[data-section="table"] [data-role="toolbar"] [data-group="hidden"], [data-section="table"] [data-role="toolbar"] [data-group="aggregations"], [data-section="table"] [data-role="toolbar"] [data-group="values"], [data-section="table"] [data-role="toolbar"] [data-selector="aggregator_value"], [data-section="chart"] [data-role="toolbar"] [data-group="hidden"], [data-section="chart"] [data-role="toolbar"] [data-group="aggregations"], [data-section="chart"] [data-role="toolbar"] [data-group="values"], [data-section="chart"] [data-role="toolbar"] [data-selector="aggregator_value"] {
+  display: none !important; }
+
 /* Toolbar */
 .gt-toolbar-box {
   padding-top: 5px;
@@ -14411,6 +14437,28 @@ input[type="radio"]:disabled + label {
     top: -14px !important; }
   .fm-controller-box-item .ui-widget-header {
     background-color: #db514b; }
+
+.btn-fx-status-btn span[class^="icojam_"] {
+  color: white;
+  font-size: 20px;
+  position: relative;
+  top: 3px; }
+
+.content-message {
+  margin-top: 80px; }
+
+.content-message-img {
+  width: 140px;
+  height: 129px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 25px auto; }
+  .content-message-img.empty-img {
+    background-image: url("../submodules/fenix-ui-common//css/img/mascot-empty-gray.svg"); }
+  .content-message-img.error-img {
+    background-image: url("../submodules/fenix-ui-common//css/img/mascot-error-gray.svg"); }
+  .content-message-img.huge-img {
+    background-image: url("../submodules/fenix-ui-common//css/img/mascot-huge-gray.svg"); }
 
 /* Pages */
 /* Fenix - Analysis Page */
@@ -14590,7 +14638,8 @@ input[type="radio"]:disabled + label {
     color: white;
     font-weight: 100;
     position: absolute;
-    top: 0; }
+    top: 0;
+    padding: 0 0 0 90px; }
   .home-content .country-details .home-stats-footer {
     height: 100px;
     width: 100%;
@@ -14754,6 +14803,13 @@ ol li:before {
 
 .home-tile.aims {
   background-color: white; }
+
+.country-flag {
+  width: auto;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  top: 10px; }
 
 /* Theme */
 /* Afg - Side Menu */

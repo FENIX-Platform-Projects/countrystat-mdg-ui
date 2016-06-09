@@ -96,6 +96,7 @@ background-color: $afg-home-background;
       font-weight: 100;
       position: absolute;
       top: 0;
+      padding: 0 0 0 90px;
     }
 
 
@@ -339,4 +340,11 @@ ol li:before {
 .home-tile.aims{
   background-color: white;
 
+}
+.country-flag{
+  width: auto;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  top: 10px;
 }
