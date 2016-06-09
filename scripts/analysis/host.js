@@ -72,7 +72,7 @@ define([
         this.topMenu = new TopMenu(this.authManager.isLogged() ? menuConfAuth : menuConfPub);
 
         var analysis = new Analysis({
-            cache: false,
+            cache: C.cache,
             el: s.ANALYSIS_CONTAINER,
             environment: C.environment,
             catalogDefaultSelectors: C.catalogDefaultSelectors,

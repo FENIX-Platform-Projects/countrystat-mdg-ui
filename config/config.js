@@ -8,8 +8,9 @@ define(function () {
         MD_EXPORT_URL: 'http://fenixservices.fao.org/d3s',
         DATA_ENVIROMENT_URL: 'http://fenixservices.fao.org',
 
+        //all components
+        cache : false,
         environment: "production",
-
         //Analysis
         catalogSelectorsRegistry: {
             contextSystem: {
