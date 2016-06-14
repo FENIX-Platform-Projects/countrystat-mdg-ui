@@ -75,10 +75,7 @@ define([
             cache: C.cache,
             el: s.ANALYSIS_CONTAINER,
             environment: C.environment,
-            catalogDefaultSelectors: C.catalogDefaultSelectors,
-            catalogSelectorsRegistry: C.catalogSelectorsRegistry,
-            catalogBaseFilter: C.catalogBaseFilter,
-            catalogMenuExcludedItems: C.catalogMenuExcludedItems
+            catalog: C.catalog,
         })
             .on("catalog.show", function () {
                 self.closeLateralMenu();

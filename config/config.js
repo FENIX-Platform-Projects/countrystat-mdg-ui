@@ -11,30 +11,34 @@ define(function () {
         //all components
         cache : false,
         environment: "production",
+
         //Analysis
-        catalogSelectorsRegistry: {
-            contextSystem: {
-                selector: {
-                    source: [
-                        {value: "cstat_mdg", label: "CountrySTAT Madagascar"}
-                    ],
-                    default: ["cstat_mdg"]
+        catalog : {
+            selectorsRegistry: {
+                contextSystem: {
+                    selector: {
+                        source: [
+                            {value: "cstat_mdg", label: "CountrySTAT Madagascar"}
+                        ],
+                        default: ["cstat_mdg"]
+                    }
+                },
+                dataDomain: {
+                    cl : {
+                        uid: "CountrySTAT_Indicators",
+                        level : 1,
+                        levels : 1
+                    }
                 }
             },
-            dataDomain: {
-                cl : {
-                    uid: "CountrySTAT_Indicators",
-                    level : 1,
-                    levels : 1
-                }
-            }
+            baseFilter: {
+                "dsd.contextSystem": {"enumeration": ["cstat_mdg"]},
+                "meContent.resourceRepresentationType": {"enumeration": ["dataset"]}
+            },
+            defaultSelectors: ["referenceArea", "dataDomain"],
+            menuExcludedItems : ["accessibility"]
+
         },
-        catalogBaseFilter: {
-            "dsd.contextSystem": {"enumeration": ["cstat_mdg"]},
-            "meContent.resourceRepresentationType": {"enumeration": ["dataset"]}
-        },
-        catalogDefaultSelectors: ["referenceArea", "dataDomain"],
-        catalogMenuExcludedItems : ["accessibility"]
 
     };
 
