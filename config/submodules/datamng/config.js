@@ -35,8 +35,9 @@ define(['jquery', 'fx-submodules/config/baseConfig'],
         cfg.SITE_TEMPLATE = 'topmenu';
 
         cfg.METADATA_PATH = {
-            schemaPath: 'fx-MetaEditor2/config/schemas/'
+            schemaPath: '../../config/submodules/metadataEditor/schemas/'
         };
+
 
         cfg.METADATA_SEC = [
             {
