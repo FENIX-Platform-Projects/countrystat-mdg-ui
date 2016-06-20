@@ -13855,6 +13855,125 @@ input[type="radio"]:disabled + label {
 .fm-icon-close:hover {
   background-position: -12px 0px; }
 
+/* FENIX Data Management */
+.form-group {
+  position: relative; }
+
+.alpaca-button-disabled {
+  background-color: #c4c4c4 !important; }
+
+.cTdDim {
+  width: 34%;
+  padding: 8px; }
+
+.cTdVal {
+  width: 33%;
+  padding: 8px; }
+
+.cTdOther {
+  width: 33%;
+  padding: 8px; }
+
+.bg-dim {
+  background-color: #DFF0D8; }
+
+.bg-val {
+  background-color: #D9EDF7; }
+
+.bg-other {
+  background-color: #FCF8E3; }
+
+#main-container .container {
+  padding: 0;
+  width: 100%; }
+
+.catalog-dm {
+  position: static;
+  display: block;
+  opacity: 1;
+  overflow: visible; }
+  .catalog-dm .modal-dialog {
+    -ms-transform: none !important;
+    -webkit-transform: none !important;
+    transform: none !important; }
+
+.datamng-welcome {
+  text-align: center;
+  width: 350px;
+  background-color: white;
+  padding: 25px;
+  position: relative;
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px; }
+  .datamng-welcome h3 {
+    margin-top: 0;
+    font-size: 22px; }
+  .datamng-welcome .datamng-welcome-btn {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    background-color: #dddddd;
+    border: 2px solid transparent;
+    cursor: pointer;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    margin: 5px; }
+    .datamng-welcome .datamng-welcome-btn:hover {
+      border-color: #db514b; }
+    .datamng-welcome .datamng-welcome-btn a {
+      display: inline-block;
+      position: relative;
+      top: 50%;
+      width: 100%;
+      -ms-transform: translateY(-40%);
+      -webkit-transform: translateY(-40%);
+      transform: translateY(-40%); }
+      .datamng-welcome .datamng-welcome-btn a span:first-child {
+        font-size: 30px;
+        color: #333; }
+      .datamng-welcome .datamng-welcome-btn a span:last-child {
+        text-transform: uppercase;
+        font-size: 12px; }
+      .datamng-welcome .datamng-welcome-btn a:hover, .datamng-welcome .datamng-welcome-btn a:active, .datamng-welcome .datamng-welcome-btn a:focus {
+        text-decoration: none; }
+
+#data-mng-menu-container .fx-menu {
+  margin-bottom: 0;
+  background-color: #dddddd;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: normal;
+  min-height: 30px; }
+  #data-mng-menu-container .fx-menu .fx-ul a {
+    padding-bottom: 5px;
+    padding-top: 5px; }
+#data-mng-menu-container .dropdown-menu {
+  border-top: 0; }
+
+.fx-datamng-holder {
+  min-height: 400px;
+  background-color: #f8f8f8;
+  padding-top: 20px; }
+  .fx-datamng-holder .metadata-view .container {
+    padding: 0;
+    width: 100%; }
+
+.datamng-container {
+  padding: 0; }
+
 /* Visualization Box Style */
 .fx-box {
   height: 450px;
@@ -14464,120 +14583,6 @@ input[type="radio"]:disabled + label {
     background-image: url("../submodules/fenix-ui-common//css/img/mascot-huge-gray.svg"); }
 
 /* Pages */
-/* Fenix - Analysis Page */
-#overlay .close-overlay {
-  height: 35px;
-  width: 35px;
-  background: url("img/icons-sprite.png") no-repeat -595px 0px;
-  border: none;
-  position: absolute;
-  right: 0;
-  z-index: 1; }
-#overlay .fx-catalog-modular-menu-container {
-  margin-top: 35px; }
-#overlay .fx-catalog-modular-form-holder {
-  margin-top: 35px; }
-
-.results-actions-container .btn {
-  margin: 0 5px; }
-
-.fx-catalog-welcome {
-  top: 65%; }
-  .fx-catalog-welcome h1 {
-    font-size: 20px; }
-
-/* Afg Data Management */
-#main-container .container {
-  padding: 0;
-  width: 100%; }
-
-.catalog-dm {
-  position: static;
-  display: block;
-  opacity: 1;
-  overflow: visible; }
-  .catalog-dm .modal-dialog {
-    -ms-transform: none !important;
-    -webkit-transform: none !important;
-    transform: none !important; }
-
-.datamng-welcome {
-  text-align: center;
-  width: 350px;
-  background-color: white;
-  padding: 25px;
-  position: relative;
-  left: 50%;
-  -ms-transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  border-radius: 3px; }
-  .datamng-welcome h3 {
-    margin-top: 0;
-    font-size: 22px; }
-  .datamng-welcome .datamng-welcome-btn {
-    display: inline-block;
-    width: 75px;
-    height: 75px;
-    background-color: #dddddd;
-    border: 2px solid transparent;
-    cursor: pointer;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -ms-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
-    margin: 5px; }
-    .datamng-welcome .datamng-welcome-btn:hover {
-      border-color: #db514b; }
-    .datamng-welcome .datamng-welcome-btn a {
-      display: inline-block;
-      position: relative;
-      top: 50%;
-      width: 100%;
-      -ms-transform: translateY(-40%);
-      -webkit-transform: translateY(-40%);
-      transform: translateY(-40%); }
-      .datamng-welcome .datamng-welcome-btn a span:first-child {
-        font-size: 30px;
-        color: #333; }
-      .datamng-welcome .datamng-welcome-btn a span:last-child {
-        text-transform: uppercase;
-        font-size: 12px; }
-      .datamng-welcome .datamng-welcome-btn a:hover, .datamng-welcome .datamng-welcome-btn a:active, .datamng-welcome .datamng-welcome-btn a:focus {
-        text-decoration: none; }
-
-#data-mng-menu-container .fx-menu {
-  margin-bottom: 0;
-  background-color: #dddddd;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: normal;
-  min-height: 30px; }
-  #data-mng-menu-container .fx-menu .fx-ul a {
-    padding-bottom: 5px;
-    padding-top: 5px; }
-#data-mng-menu-container .dropdown-menu {
-  border-top: 0; }
-
-.fx-datamng-holder {
-  min-height: 400px;
-  background-color: #f8f8f8;
-  padding-top: 20px; }
-  .fx-datamng-holder .metadata-view .container {
-    padding: 0;
-    width: 100%; }
-
-.datamng-container {
-  padding: 0; }
-
 /* Afghanistan Home */
 .country-welcome {
   background-color: #df6660; }
