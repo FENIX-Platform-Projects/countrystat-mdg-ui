@@ -132,7 +132,7 @@ require([
     ], function (log, Host) {
 
         //trace, debug, info, warn, error, silent
-        log.setLevel('silent');
+        log.setLevel('trace');
 
         new Host();
 

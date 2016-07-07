@@ -71,6 +71,7 @@ require([
 
                     'fx-common/config/auth_users': "../../config/auth_users.json",
 
+                    'config' : '../../config',
 
                     'fx-d-m/config/config': '../../config/submodules/datamng/config',
                     //'fx-catalog/config/config': '../../config/submodules/catalog/config',
