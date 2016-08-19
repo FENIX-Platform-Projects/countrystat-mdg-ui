@@ -14483,7 +14483,7 @@ input[type="radio"]:disabled + label {
   background-color: white; }
 
 /* Hide selectors */
-[data-section="table"] [data-role="toolbar"] [data-group="hidden"], [data-section="table"] [data-role="toolbar"] [data-group="aggregations"], [data-section="table"] [data-role="toolbar"] [data-group="values"], [data-section="table"] [data-role="toolbar"] [data-selector="aggregator_value"], [data-section="chart"] [data-role="toolbar"] [data-group="hidden"], [data-section="chart"] [data-role="toolbar"] [data-group="aggregations"], [data-section="chart"] [data-role="toolbar"] [data-group="values"], [data-section="chart"] [data-role="toolbar"] [data-selector="aggregator_value"] {
+[data-section="table"] [data-role="toolbar"] [data-group="hidden"], [data-section="table"] [data-role="toolbar"] [data-group="aggregations"], [data-section="table"] [data-role="toolbar"] [data-group="values"], [data-section="table"] [data-role="toolbar"] [data-selector="aggregatorValue"], [data-section="chart"] [data-role="toolbar"] [data-group="hidden"], [data-section="chart"] [data-role="toolbar"] [data-group="aggregations"], [data-section="chart"] [data-role="toolbar"] [data-group="values"], [data-section="chart"] [data-role="toolbar"] [data-selector="aggregatorValue"] {
   display: none !important; }
 
 /* Toolbar */
@@ -15051,8 +15051,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    top: -7px; }
+    transition: all 0.5s ease; }
   .brand-logo span {
     width: 60%;
     display: inline-block;
